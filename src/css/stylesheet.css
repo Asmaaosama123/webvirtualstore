@@ -13,7 +13,9 @@ body {
     
 }
 #login-page {
-    background-image:url(C:\Users\original\Documents\web\my-react-app\src\image\photo_2024-11-13_14-43-08.jpg);
+    /* background-image:url(C:\Users\original\Documents\web\my-react-app\src\image\photo_2024-11-13_14-43-08.jpg); */
+    background-image:url("/images/photo_2024-11-13_14-43-08.jpg");
+
     background-size: cover;
     background-repeat: no-repeat;
     /* background-position: center; */
