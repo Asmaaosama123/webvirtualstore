@@ -6,22 +6,26 @@ const LOGIN = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false); // New loading state
+  const [loading, setLoading] = useState(false); // Loading state
   const navigate = useNavigate();
+
+  // API base URL from environment variable or fallback
+  const API_BASE = import.meta.env.VITE_API_URL || 'https://vstore2.runasp.net';
 
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true); // Start loading
+    setError('');     // Clear previous errors
 
     try {
       const formData = new FormData();
       formData.append('Email', email);
       formData.append('Password', password);
 
-      const response = await fetch('/api/Account/Login', {
+      const response = await fetch(`${API_BASE}/api/Account/Login`, {
         method: 'POST',
         body: formData,
-        credentials: 'include', // Include credentials for session cookies
+        credentials: 'include', // Include session cookies
       });
 
       if (!response.ok) {
@@ -33,20 +37,20 @@ const LOGIN = () => {
       if (email === 'tshahd733@gmail.com') {
         localStorage.setItem('AdminEmail', email);
         localStorage.setItem('isAdminAuthenticated', 'true');
-        console.log('Admin verified session created'); // Log message on successful login
+        console.log('Admin verified session created');
         navigate('/AdminDashboard');
       } else {
         throw new Error('Not authorized as admin');
       }
     } catch (err) {
       setError(err.message);
-      setLoading(false); // Stop loading on error
+    } finally {
+      setLoading(false); // Stop loading in any case
     }
   };
 
   return (
     <div id="login-page">
-      {/* Full-Page Loading Overlay */}
       {loading && (
         <div className="loading-overlay">
           <div className="loading-spinner"></div>
@@ -59,32 +63,26 @@ const LOGIN = () => {
           <h2 id="title">Login</h2>
           {error && <div className="error">{error}</div>}
           <form onSubmit={handleLogin}>
-            <div>
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Email"
-                required
-                id="email"
-              />
-            </div>
-            <div>
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Password"
-                required
-                id="password"
-              />
-            </div>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Email"
+              required
+              id="email"
+            />
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Password"
+              required
+              id="password"
+            />
             <button type="submit" id="btn">Login</button>
           </form>
           <div>
-            <a href="/ForgetPassword" id="link">
-              Forgot Password?
-            </a>
+            <a href="/ForgetPassword" id="link">Forgot Password?</a>
           </div>
         </div>
       )}
