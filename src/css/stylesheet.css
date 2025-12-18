@@ -1,0 +1,193 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+/* General styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+#login-page{
+    
+    
+}
+#login-page {
+    background-image:url(C:\Users\original\Documents\web\my-react-app\src\image\photo_2024-11-13_14-43-08.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* background-position: center; */
+    height: 100vh;
+    display: flex;
+    /* justify-content: center; */
+    /* align-items: center; */
+  }
+  #container
+{
+    margin:100px 0;
+    position: absolute;
+    margin-left:100px;
+    width: 450px;
+    height: 450px;
+    background-color: rgba(154, 125, 105, 0.5);
+    border-radius: 30px;
+    padding: 20px;
+}
+/* #container {
+    width: 450px;
+    height: 450px;
+    background-color: rgba(154, 125, 105, 0.5);
+    border-radius: 30px;
+    padding: 20px;
+  } */
+
+
+#maintitle
+{
+    font-size: 120px;
+    text-align: center;  
+    color:#fff;
+    opacity: .6;
+    font-family: "Pacifico", serif;
+    font-weight: 400;
+    font-style: normal;
+    margin-left: 650px;
+    margin-top: 220px;
+    position: absolute;
+}
+#title
+{
+    font-size: 40px;
+    text-align: center;
+    color:#fff;
+    margin: 30px auto 50px auto;
+    font-family: "Pacifico", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+#email,#password
+{
+    width:350px;
+    height:35px;
+    background-color: transparent;
+    display:block;
+    border:none;
+    border-bottom: #fff solid 1px;
+    margin:auto;
+    font-size: 19px;
+    padding-left:20px;
+    color:#fff;
+    font-family: "Arima", serif;
+    letter-spacing: 1px;
+    margin-top:30px;
+}
+#email:focus,#password:focus
+{
+
+    background-color: transparent;
+    border:none;
+    border-bottom: #fff solid 1px;
+    font-size: 19px;
+    padding-left:20px;
+    color:#fff;
+    font-family: "Arima", serif;
+    outline: none;
+    letter-spacing: 1px;
+}
+
+#password
+{
+    margin:50px auto 70 auto;
+}
+#container1
+{
+    margin:50px 0;
+    position: absolute;
+    margin-left:100px;
+    width: 450px;
+    height: 650px;
+    background-color: rgba(154, 125, 105, 0.5);
+    border-radius: 30px;
+    padding: 20px;
+}
+#btn
+{
+    width:250px ;
+    height:40px;
+    background-color: #fff;
+    color:#000;
+    border-radius: 30px;
+    border: #fff solid 1px;
+    margin:30px 172px 50px 81px;
+    font-family: cursive;
+    font-weight: 400;
+    font-style: normal;
+    color:#9a7d69;
+    font-size: 19px;
+    cursor: pointer;
+
+}
+#btn:hover
+{
+    background-color:#977762;
+    color:#fff;
+    border: #977762 solid 1px;
+}
+#email::placeholder,#password::placeholder
+{
+    font-size: 19px;
+    padding-left:20px;
+    color:#fff;
+    font-family: "Arima", serif;
+}
+
+#link{
+    height:20px;
+    font-size: 30px;
+    margin: -6px 95px;
+    color: #fff;
+    font-family: ui-monospace;
+    font-weight: 200;
+    font-style: normal;
+    text-transform: capitalize;
+    text-decoration: none;
+
+}
+#link:hover{
+
+    color:#3d3832;
+}
+/* Full-page loading overlay */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Dark semi-transparent background */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 18px;
+    z-index: 9999; /* Ensure it appears on top */
+  }
+  
+  /* Loading spinner animation */
+  .loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(48, 47, 225, 0.3);
+    border-top: 5px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 10px;
+  }
+  
+  /* Keyframes for spinner animation */
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  

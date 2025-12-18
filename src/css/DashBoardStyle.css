@@ -1,0 +1,203 @@
+/* Regular Card Style */
+.owner-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: #fff;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  padding: 20px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Default shadow */
+}
+
+.owner-card:hover {
+  transform: translateY(-3px);
+}
+
+/* Hover Effects for Box Shadows */
+.owner-card.pending:hover {
+  box-shadow: 0px 6px 10px rgba(237, 222, 10, 0.4); /* Yellow shadow for Pending */
+}
+
+.owner-card.accepted:hover {
+  box-shadow: 0px 6px 10px rgba(40, 167, 69, 0.4); /* Green shadow for Accepted */
+}
+
+.owner-card.unknown:hover {
+  box-shadow: 0px 6px 10px rgba(108, 117, 125, 0.4); /* Gray shadow for Unknown */
+}
+
+/* Owner Info Section */
+.owner-info {
+  display: flex;
+  align-items: center;
+}
+
+.owner-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 15px;
+  object-fit: cover;
+}
+
+.owner-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.owner-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Metadata Section */
+.owner-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.shop-name {
+  font-size: 16px;
+  color: #555;
+}
+
+/* Status Badges */
+.badge {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  width: fit-content;
+}
+
+.badge.green {
+  background-color: #d4f7e4;
+  color: #28a745;
+}
+
+.badge.yellow {
+  background-color: #fff4cc;
+  color: #ffc107;
+}
+
+.badge.gray {
+  background-color: #e4e4e4;
+  color: #6c757d;
+}
+
+/* Card Layout Adjustments for Responsiveness */
+@media (max-width: 768px) {
+  .owner-card {
+    flex-direction: column; /* Stack content vertically */
+    padding: 15px;
+  }
+
+  .owner-info {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .owner-image {
+    margin: 0 auto 10px auto; /* Center the image */
+  }
+
+  .owner-meta {
+    align-items: center;
+    margin: 15px 0;
+  }
+
+  .shop-name,
+  .badge {
+    text-align: center;
+  }
+}
+
+
+
+  .dashboard-wrapper {
+    display: flex;
+  }
+  
+  .dashboard-content {
+    margin-left: 200px; /* Sidebar width */
+    padding: 20px;
+    width: 100%;
+  }
+  .owner-info {
+    display: grid
+;
+    grid-template-columns: 1fr 2fr;
+    gap: 10px;}
+    /* Container for side-by-side statistics */
+.stats-container {
+  display: flex;
+  justify-content: space-around; /* Even spacing */
+  align-items: center;
+  margin-top: 20px;
+  gap: 20px; /* Space between squares */
+}
+
+/* Individual Statistic Square */
+.stat-card {
+  width: 170px;
+  height: 70px;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease-in-out;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+}
+
+/* Different Background Colors */
+.stat-card.accepted {
+  background-color: #8ad6ac; /* Green */
+}
+.stat-card.pending {
+  background-color: #ceba71; /* Yellow */
+}
+.stat-card.rejected {
+  background-color: #e34d5c; /* Red */
+}
+
+/* Hover Effect */
+.stat-card:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.pie-chart-container {
+  text-align: center;
+  margin-top: 20px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 3px 10px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 50px;
+  margin-top: 25px;
+
+}
+.income-box{
+  /* border: #28a745 solid 2px; */
+  padding: 30px;
+  background-color: #BA7F71;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: xx-large;
+  width: 20%;
+  margin-left: auto;
+  border-radius: 25px;
+    color: #fff;
+  box-shadow: 3px 10px 10px rgba(0, 0, 0, 0.1);
+}
