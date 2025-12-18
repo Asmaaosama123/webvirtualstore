@@ -27,11 +27,13 @@ const AdminDashboard = () => {
   if (!isAuthenticated || !adminEmail) {
     return <Navigate to="/LOGIN" />; 
   }
+  const API_BASE = "https://vstore2.runasp.net";
+
 
   useEffect(() => {
     const fetchOwners = async () => {
       try {
-        const response = await fetch('/api/Admin/AllOwners', {
+        const response = await fetch(`${API_BASE}/api/Admin/AllOwners`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -62,7 +64,7 @@ const AdminDashboard = () => {
   useEffect(() => {
     const fetchStatistics = async () => {
       try {
-        const response = await fetch("/api/AdminStatistics/ShopOwnerStatistics", {
+        const response = await fetch(`${API_BASE}/api/AdminStatistics/ShopOwnerStatistics`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
