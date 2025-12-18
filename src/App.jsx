@@ -15,7 +15,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Navigate to="/LOGIN" />} />
+        <Route path="/" element={<Navigate to="/AdminDashboard" />} />
         <Route path="/AdminDashboard" element={<AdminDashboard />} />
         <Route path="/OwnerDetails/:ownerId" element={<OwnerDetails />} />
         <Route path="/LOGIN" element={<LOGIN />} />
