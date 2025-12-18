@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Navigate } from 'react-router-dom';
 import Swal from "sweetalert2";
 import Sidebar from './Sidebar'; // Import Sidebar
-import '../css/DetailsStyle.css'; // Add this for layout adjustment
+import '../css/Detailsstyle.css'; // Add this for layout adjustment
 import defaultImage from '../image/default-image.jpg';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend, LabelList } from "recharts";
 
