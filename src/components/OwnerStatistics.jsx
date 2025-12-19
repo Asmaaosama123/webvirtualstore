@@ -16,11 +16,12 @@ const OwnerStatistics = () => {
     const [ownerFavListCount, setFavListCount] = useState(null);  // ✅ Added state for owner orders
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
+    const API_BASE = "https://vstore2.runasp.net";
 
     useEffect(() => {
         if (!ownerId) return;
 
-        fetch(`/api/AdminStatistics/ProductStatistics/${ownerId}`)
+        fetch(`${API_BASE}/api/AdminStatistics/ProductStatistics/${ownerId}`)
             .then((response) => response.json())
             .then((data) => {
                 console.log("API Response:", data); // DEBUGGING
@@ -39,14 +40,14 @@ const OwnerStatistics = () => {
                 setLoading(false);
             });
 
-            fetch(`/api/OwnerStatistics/owners-orders/${ownerId}`)
+            fetch(`${API_BASE}/api/OwnerStatistics/owners-orders/${ownerId}`)
             .then((response) => response.json())
             .then((data) => {
                 console.log("Owner Orders API Response:", data);
                 setOwnerOrders(data);
             })
             .catch((err) => console.error("Fetch error:", err));
-      fetch(`/api/Owner/Owner/${ownerId}/Count`)
+      fetch(`${API_BASE}/api/Owner/Owner/${ownerId}/Count`)
       .then((response)=>response.json())
       .then((data)=>{
         console.log("owners favlist api ",data);

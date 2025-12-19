@@ -23,11 +23,13 @@ const AdminDashboard = () => {
   if (!isAuthenticated || !adminEmail) {
     return <Navigate to="/LOGIN" />;
   }
+  const API_BASE = "https://vstore2.runasp.net";
+
 
   useEffect(() => {
     const fetchOwnerDetails = async () => {
       try {
-        const response = await fetch(`/api/Admin/GetOwnerDetails/${ownerId}`, {
+        const response = await fetch(`${API_BASE}/api/Admin/GetOwnerDetails/${ownerId}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

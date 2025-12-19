@@ -5,9 +5,11 @@ import '../css/Sidebar.css'; // Custom styles for the sidebar
 const Sidebar = () => {
   const [showLogout, setShowLogout] = useState(false);
   const navigate = useNavigate();
+  const API_BASE = "https://vstore2.runasp.net";
+
   const handleLogout = async () => {
     try {
-      const response = await fetch('/api/Account/Logout', {
+      const response = await fetch(`${API_BASE}/api/Account/Logout`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
