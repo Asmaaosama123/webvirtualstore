@@ -6,16 +6,15 @@ const LOGIN = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false); // Loading state
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  // API base URL from environment variable or fallback
   const API_BASE = import.meta.env.VITE_API_URL || 'https://vstore2.runasp.net';
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    setLoading(true); // Start loading
-    setError('');     // Clear previous errors
+    setLoading(true);
+    setError('');
 
     try {
       const formData = new FormData();
@@ -25,19 +24,20 @@ const LOGIN = () => {
       const response = await fetch(`${API_BASE}/api/Account/Login`, {
         method: 'POST',
         body: formData,
-        credentials: 'include', // Include session cookies
+        credentials: 'include', // مهم لو السيرفر عامل session
       });
 
       if (!response.ok) {
-        const errorData = await response.json();
+        const errorData = await response.json().catch(() => ({}));
         throw new Error(errorData.message || 'Login failed');
       }
 
-      // Only allow access to the admin dashboard if the email matches
-      if (email === 'tshahd733@gmail.com') {
+      const data = await response.json();
+
+      // تأكدنا إن المستخدم أدمن
+      if (data.role === 'Admin') {
         localStorage.setItem('AdminEmail', email);
         localStorage.setItem('isAdminAuthenticated', 'true');
-        console.log('Admin verified session created');
         navigate('/AdminDashboard');
       } else {
         throw new Error('Not authorized as admin');
@@ -45,7 +45,7 @@ const LOGIN = () => {
     } catch (err) {
       setError(err.message);
     } finally {
-      setLoading(false); // Stop loading in any case
+      setLoading(false);
     }
   };
 
